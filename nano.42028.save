@@ -1,0 +1,141 @@
+### Uploading install SSH keys ###
+/run/current-system/sw/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/tmp/tmp.DMGC7m8DzI/nixos-anywhere.pub"
+/run/current-system/sw/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/run/current-system/sw/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+Warning: Permanently added '<remote-address>' (ED25519) to the list of known hosts.
+root@<remote-address>'s password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with: "ssh -i /tmp/tmp.DMGC7m8DzI/nixos-anywhere -o 'ConnectTimeout=10' -o 'UserKnownHostsFile=/dev/null' -o 'StrictHostKeyChecking=no' 'root
+@<remote-address>'"
+and check to make sure that only the key(s) you wanted were added.
+
+### Gathering machine facts ###
+Pseudo-terminal will not be allocated because stdin is not a terminal.
+Warning: Permanently added '<remote-address>' (ED25519) to the list of known hosts.
+### Switching system into kexec ###
+Pseudo-terminal will not be allocated because stdin is not a terminal.
+Warning: Permanently added '<remote-address>' (ED25519) to the list of known hosts.
+Warning: Permanently added '<remote-address>' (ED25519) to the list of known hosts.
+kexec/
+kexec/bzImage
+kexec/ip
+kexec/run
+kexec/initrd
+kexec/kexec
+Connection to <remote-address> closed.
+Pseudo-terminal will not be allocated because stdin is not a terminal.
+Warning: Permanently added '<remote-address>' (ED25519) to the list of known hosts.
+Linux rescue 6.12.19 #1 SMP Fri Mar 14 05:34:52 UTC 2025 x86_64
+
+-------------------------------------------------------------------------------------------------------------------------
+
+  Welcome to the Hetzner Rescue System.
+
+  This Rescue System is based on Debian GNU/Linux 12 (bookworm) with a custom kernel.
+  You can install software like you would in a normal system.
+
+  To install a new operating system from one of our prebuilt images, run 'installimage' and follow the instructions.
+
+  Important note: Any data that was not written to the disks will be lost during a reboot.
+
+  For additional information, check the following resources:
+    Rescue System:           https://docs.hetzner.com/robot/dedicated-server/troubleshooting/hetzner-rescue-system
+    Installimage:            https://docs.hetzner.com/robot/dedicated-server/operating-systems/installimage
+    Install custom software: https://docs.hetzner.com/robot/dedicated-server/operating-systems/installing-custom-images
+    other articles:          https://docs.hetzner.com/robot
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Rescue System (via Legacy/CSM) up since 2025-04-26 18:09 +02:00
+
+Hardware data:
+
+   CPU1: Intel(R) Core(TM) i7-7700 CPU @ 3.60GHz (Cores 8)
+   Memory:  64108 MB (Non-ECC)
+   Disk /dev/nvme0n1: 512 GB (=> 476 GiB) 
+   Disk /dev/nvme1n1: 512 GB (=> 476 GiB) 
+   Total capacity 953 GiB with 2 Disks
+
+Network data:
+   eth0  LINK: yes
+         MAC:  <remote-address>
+         IP:   <remote-address>
+         IPv6: <remote-address>
+         Intel(R) PRO/1000 Network Driver
+
++ kexec_extra_flags=
++ [ 2 -gt 0 ]
++ kexec_extra_flags=
++ shift
++ shift
++ [ 0 -gt 0 ]
++ init=/nix/store/vzzg5a1rszrnqq6yd6x4h3m3ypy2f972-nixos-system-nixos-installer-24.11pre-git/init
++ kernelParams=nouveau.modeset=0 console=tty0 console=ttyS0,115200 zswap.enabled=1 zswap.max_pool_percent=50 zswap.compressor=zstd zswap.zpool=zsmalloc root=fstab loglevel=4
++ readlink -f /root/kexec/kexec/run
++ dirname /root/kexec/kexec/run
++ SCRIPT_DIR=/root/kexec/kexec
++ TMPDIR=/root/kexec/kexec mktemp -d
++ INITRD_TMP=/root/kexec/kexec/tmp.IM9oiUJF2v
++ cd /root/kexec/kexec/tmp.IM9oiUJF2v
++ trap cleanup EXIT
++ mkdir -p ssh
++ extractPubKeys /root
++ home=/root
++ key=/root/.ssh/authorized_keys
++ test -e /root/.ssh/authorized_keys
++ grep -o \(\(ssh\|ecdsa\|sk\)-[^ ]* .*\) /root/.ssh/authorized_keys
++ key=/root/.ssh/authorized_keys2
++ test -e /root/.ssh/authorized_keys2
++ test -n 
++ test -n 
++ test -e /etc/ssh/authorized_keys.d/root
++ test -n 
++ test -e /etc/ssh/ssh_host_ecdsa_key
++ cp -a /etc/ssh/ssh_host_ecdsa_key ssh
++ test -e /etc/ssh/ssh_host_ecdsa_key.pub
++ cp -a /etc/ssh/ssh_host_ecdsa_key.pub ssh
++ test -e /etc/ssh/ssh_host_ed25519_key
++ cp -a /etc/ssh/ssh_host_ed25519_key ssh
++ test -e /etc/ssh/ssh_host_ed25519_key.pub
++ cp -a /etc/ssh/ssh_host_ed25519_key.pub ssh
++ test -e /etc/ssh/ssh_host_rsa_key
++ cp -a /etc/ssh/ssh_host_rsa_key ssh
++ test -e /etc/ssh/ssh_host_rsa_key.pub
++ cp -a /etc/ssh/ssh_host_rsa_key.pub ssh
++ /root/kexec/kexec/ip --json addr
++ /root/kexec/kexec/ip -4 --json route
++ /root/kexec/kexec/ip -6 --json route
++ [ -f /etc/machine-id ]
++ cp /etc/machine-id machine-id
++ find .
++ cpio -o -H newc
++ gzip -9
+16 blocks
++ kexecSyscallFlags=
++ sort -c -V
++ uname -r
++ printf %s\n 6.1 6.12.19
++ kexecSyscallFlags=--kexec-syscall-auto
++ sh -c '/root/kexec/kexec/kexec' --load '/root/kexec/kexec/bzImage'   --kexec-syscall-auto      --initrd='/root/kexec/kexec/initrd' --no-checks   --command-line 'init=/nix/st
+ore/vzzg5a1rszrnqq6yd6x4h3m3ypy2f972-nixos-system-nixos-installer-24.11pre-git/init nouveau.modeset=0 console=tty0 console=ttyS0,115200 zswap.enabled=1 zswap.max_pool_percent=
+50 zswap.compressor=zstd zswap.zpool=zsmalloc root=fstab loglevel=4'
+machine will boot into nixos in 6s...
++ echo machine will boot into nixos in 6s...
++ test -e /dev/kmsg
++ exec
+Warning: Permanently added '<remote-address>' (ED25519) to the list of known hosts.
+Warning: Permanently added '<remote-address>' (ED25519) to the list of known hosts.
+Warning: Permanently added '<remote-address>' (ED25519) to the list of known hosts.
+Warning: Permanently added '<remote-address>' (ED25519) to the list of known hosts.
+Warning: Permanently added '<remote-address>' (ED25519) to the list of known hosts.
+Connection to <remote-address> closed.
+### Generating hardware-configuration.nix using nixos-generate-config ###
+Warning: Permanently added '<remote-address>' (ED25519) to the list of known hosts.
+/home/frey/development/hetzner-nixos-installer /home/frey/development/hetzner-nixos-installer
+/home/frey/development/hetzner-nixos-installer
+Warning: Permanently added '<remote-address>' (ED25519) to the list of known hosts.
+
+error: flake 'git+file:///home/frey/development/hetzner-nixos-installer' does not provide attribute 'packages.x86_64-linux.nixosConfigurations."generic".config.system.build.Sc
+ript', 'legacyPackages.x86_64-linux.nixosConfigurations."generic".config.system.build.Script' or 'nixosConfigurations."generic".config.system.build.Script'
