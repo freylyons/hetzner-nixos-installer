@@ -1,0 +1,31 @@
+## Disk Seeding
+
+The efficacy of disk seeding before encryption is dubious. There isn't any evidence to support any improvement in the difficulty of cracking an encryption, but it does make it impossible for an attacker to detect which parts of the disk contained encrypted information, how much information is encrypted, etc. At the same time this removes any unwanted content from the disk from being encrypted, avoiding any possible legal ramifications or ensuring that the disk is fit for its intended purpose without risk of unintended data leaking. Simple zeros will suffice for this, but without aiding hiding the encrypted portions of the disk (see deniable cryptography on wikipedia).
+https://www.oaepublish.com/articles/jsss.2020.22
+DOI: 10.20517/jsss.2020.22 
+
+If you choose to bother with this step for your use case, the below commands will seed the disk with random 1s and 0s. It will take some time but render the disk wiped of any unwanted data, and encrypting this drive will make the entire drive's contents appear as random noise.
+
+```
+sudo cryptsetup open --type plain --key-file=/dev/urandom /dev/sdX seededisk
+sudo dd if=/dev/zero of=/dev/mapper/seededisk bs=1M status=progress
+sudo cryptsetup close seededisk
+```
+
+
+
+## Pool Creation
+
+The pool should be created with an encryption passphase and encryption. You will need to ensure that the initrd
+```
+zpool create -O encryption=on -O keyformat=passphrase -O keylocation=prompt -O compression=on -O mountpoint=none -O xattr=sa -O acltype=posixacl -o ashift=13 stable mirror /dev/nvme0n1 /dev/nvme1n1 -f
+```
+
+## Dataset Creation
+
+Datasets we need:
+- boot
+- swap
+- root
+- nix
+- home
